@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../SleepGuard/IPowerApi.cs" Link="IPowerApi.cs" />
+    <Compile Include="../SleepGuard/PowerManager.cs" Link="PowerManager.cs" />
+    <Compile Include="../SleepGuard/PowerProfile.cs" Link="PowerProfile.cs" />
+    <Compile Include="../SleepGuard/PowerSnapshot.cs" Link="PowerSnapshot.cs" />
+    <Compile Include="../SleepGuard/PowerValues.cs" Link="PowerValues.cs" />
+    <Compile Include="../SleepGuard/WindowsPowerApi.cs" Link="WindowsPowerApi.cs" />
+    <Compile Include="../SleepGuard/WindowsPowerApi.Native.cs" Link="WindowsPowerApi.Native.cs" />
+  </ItemGroup>
+</Project>

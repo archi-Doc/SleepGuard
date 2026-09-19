@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="SleepGuard/SleepGuard.csproj" />
+  <Project Path="SleepGuard.Tests/SleepGuard.Tests.csproj" />
+</Solution>

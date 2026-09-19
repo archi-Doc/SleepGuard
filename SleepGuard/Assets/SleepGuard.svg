@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="shield" x1="54" y1="34" x2="194" y2="227" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#27d4be"/><stop offset="1" stop-color="#3459bc"/>
+    </linearGradient>
+    <mask id="moon"><rect width="256" height="256" fill="white"/><circle cx="162.5" cy="99.5" r="51.5" fill="black"/></mask>
+  </defs>
+  <path d="M128 16C156 36 190 47 221 51L216 129C212 181 176 217 128 240C80 217 44 181 40 129L35 51C66 47 100 36 128 16Z" fill="url(#shield)" stroke="#87f7e2" stroke-opacity=".67" stroke-width="4"/>
+  <circle cx="130.5" cy="120.5" r="55.5" fill="#f4fffc" mask="url(#moon)"/>
+  <path d="M174 76L179 88L191 93L179 98L174 110L169 98L157 93L169 88Z" fill="#f4fffc"/>
+</svg>
