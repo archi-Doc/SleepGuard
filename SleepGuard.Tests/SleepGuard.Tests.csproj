@@ -7,12 +7,12 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="../SleepGuard/IPowerApi.cs" Link="IPowerApi.cs" />
-    <Compile Include="../SleepGuard/PowerManager.cs" Link="PowerManager.cs" />
-    <Compile Include="../SleepGuard/PowerProfile.cs" Link="PowerProfile.cs" />
-    <Compile Include="../SleepGuard/PowerSnapshot.cs" Link="PowerSnapshot.cs" />
-    <Compile Include="../SleepGuard/PowerValues.cs" Link="PowerValues.cs" />
-    <Compile Include="../SleepGuard/WindowsPowerApi.cs" Link="WindowsPowerApi.cs" />
-    <Compile Include="../SleepGuard/WindowsPowerApi.Native.cs" Link="WindowsPowerApi.Native.cs" />
+    <Compile Include="../SleepGuard/Power/IPowerApi.cs" Link="Power/IPowerApi.cs" />
+    <Compile Include="../SleepGuard/Power/PowerManager.cs" Link="Power/PowerManager.cs" />
+    <Compile Include="../SleepGuard/Power/PowerProfile.cs" Link="Power/PowerProfile.cs" />
+    <Compile Include="../SleepGuard/Power/PowerSnapshot.cs" Link="Power/PowerSnapshot.cs" />
+    <Compile Include="../SleepGuard/Power/PowerValues.cs" Link="Power/PowerValues.cs" />
+    <Compile Include="../SleepGuard/Power/WindowsPowerApi.cs" Link="Power/WindowsPowerApi.cs" />
+    <Compile Include="../SleepGuard/Power/WindowsPowerApi.Native.cs" Link="Power/WindowsPowerApi.Native.cs" />
   </ItemGroup>
 </Project>

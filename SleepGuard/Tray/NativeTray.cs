@@ -51,7 +51,7 @@ internal sealed unsafe class NativeTray : IDisposable
             this.window = CreateWindowEx(0, ClassName, "SleepGuard", 0, 0, 0, 0, 0, 0, 0, this.instance, 0);
             Ensure(this.window != 0, "Create the tray window");
             this.AddTrayIcon();
-            this.Apply(PowerProfile.Normal);
+            this.Apply(PowerProfile.Awake);
         }
         catch
         {

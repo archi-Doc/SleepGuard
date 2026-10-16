@@ -9,7 +9,7 @@ The EXE and notification area use the same icon, with nine sizes from 16 to 256 
 
 ## Behavior
 
-SleepGuard starts in **Normal** mode without opening a main window. Left-click or
+SleepGuard starts in **Awake** mode without opening a main window. Left-click or
 right-click its tray icon to open this menu:
 
 ```text
@@ -59,7 +59,7 @@ or hardware behavior can also affect when the device sleeps or hibernates.
 
 Use the Exit menu for a guaranteed checked return to Normal. Forced process
 termination, crashes, sign-out, and shutdown cannot guarantee this cleanup. The
-next launch applies Normal again.
+next launch applies Awake again.
 
 ## Build
 
@@ -96,9 +96,24 @@ geometry with Windows GDI+ and embeds PNG frames into a multiresolution ICO.
 
 ## Validation
 
-The source separates power profiles and data types, power-setting operations,
-Win32 declarations and structures, tray behavior, and embedded icon loading.
-`SleepGuard.Tests/FakePowerApi.cs` contains the fault-injecting backend used by the
+Source files are grouped by responsibility:
+
+```text
+SleepGuard/
+  Program.cs        Application entry point
+  Power/            Power profiles, settings, and Windows power API
+  Tray/             Notification-area UI and embedded icon loading
+  Interop/          Win32 declarations, structures, and constants
+  Diagnostics/      Native smoke test
+  Assets/           Icon artwork and resources
+  Properties/       Publish profiles
+SleepGuard.Tests/
+  Program.cs        Power-setting tests
+  Fakes/            Fault-injecting test backend
+tools/              Icon generation script
+```
+
+`SleepGuard.Tests/Fakes/FakePowerApi.cs` contains the fault-injecting backend used by the
 power-setting tests. Native structures retain their Windows ABI field order.
 
 Formatting follows `.editorconfig`; `stylecop.json` configures the existing StyleCop
@@ -132,9 +147,9 @@ test backend. This briefly displays a tray icon and never writes real power sett
 
 For manual acceptance on the target laptop:
 
-1. Start SleepGuard and check that Normal is selected.
+1. Start SleepGuard and check that Awake is selected automatically.
 2. Open the menu with each mouse button and verify it dismisses on an outside click.
-3. Select Awake and inspect the battery/AC values in Windows power settings.
+3. Inspect the battery/AC values in Windows power settings for Awake.
 4. Select Normal and verify that sleep and lid settings match the table.
 5. Select Awake, then Exit; verify Normal settings and removal of the tray icon.
 

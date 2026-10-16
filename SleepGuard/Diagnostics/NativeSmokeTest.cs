@@ -14,10 +14,15 @@ internal static class NativeSmokeTest
             var backend = new TestPowerApi();
             var errors = 0;
             using var tray = new NativeTray(new PowerManager(backend), _ => errors++);
-            Require(tray.Profile == PowerProfile.Normal, "Initial profile");
-            VerifyMenu(tray, NormalCommand);
+            Require(tray.Profile == PowerProfile.Awake, "Initial profile");
+            Require(backend.State.Values == new PowerValues(300, 18000, 0, 0), "Initial Awake values");
+            VerifyMenu(tray, AwakeCommand);
 
             // Exercise the real unmanaged callback using the same command dispatch as the menu.
+            SendMessage(tray.Window, WindowMessageCommand, NormalCommand, 0);
+            Require(tray.Profile == PowerProfile.Normal, "Normal selection");
+            Require(backend.State.Values == new PowerValues(300, 300, 1, 1), "Normal values");
+            VerifyMenu(tray, NormalCommand);
             SendMessage(tray.Window, WindowMessageCommand, AwakeCommand, 0);
             Require(tray.Profile == PowerProfile.Awake, "Awake selection");
             Require(backend.State.Values == new PowerValues(300, 18000, 0, 0), "Awake values");
